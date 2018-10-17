@@ -1,0 +1,33 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: developers
+ * Date: 2/10/2018
+ * Time: 3:42 PM
+ */
+include_once '../../core.php';
+Utility::requiredJsonHeadersPost();
+
+// instantiate database
+$database = new Database();
+//open connection to database
+$database->getConnection();
+
+
+//get post data from client
+$threadId = Utility::filterPostString("_thread_id");
+$data = array(
+    "subject" => Utility::filterPostString("_subject"),
+    "content" => Utility::filterPostString("_content"),
+);
+$status = $database->updateHelper('threads',$data, array('id'=>$threadId));
+if($status){
+    $serverStatus = array('status' =>1,'message'=> 'Thread was updated.');
+}else{
+    $serverStatus = array('status' =>0,'message'=> 'Unable to update thread.');
+}
+
+echo json_encode(array('data' => $serverStatus));
+
+//close database connection
+$database->closeConnection();
