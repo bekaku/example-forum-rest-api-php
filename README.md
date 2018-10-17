@@ -1,5 +1,9 @@
 # example-forum-rest-api-php
 
+This library conforms to [AndroidForum](https://github.com/bekaku/AndroidForum), Android Application Code
+
+
+
 ## Requirements
 
 - PHP 5.6, or higher
