@@ -1,6 +1,6 @@
 # example-forum-rest-api-php
 
-This library conforms to [AndroidForum](https://github.com/bekaku/AndroidForum), Android Application Code
+This library conforms to [AndroidForum](https://github.com/bekaku/example-forum-android), Android Application Code
 
 
 
