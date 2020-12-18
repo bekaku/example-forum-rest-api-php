@@ -16,11 +16,13 @@ $database->getConnection();
 $postData = [];
 
 //get post data from client
+$jsonData = Utility::getJsonData();
+
 $data = array(
-    "threads_id" => Utility::filterPostString("_threads_id"),
-    "content" => Utility::filterPostString("_content"),
+    "threads_id" => $jsonData->_thread_id,
+    "content" => $jsonData->_content,
     "created" => Utility::getDateNow(true),
-    "user_account_id" => Utility::filterPostString("_user_account_id"),
+    "user_account_id" => $jsonData->_user_account_id,
 );
 //insert post data to database and get last id
 $lastInsertId = $database->insertHelper('post', $data);

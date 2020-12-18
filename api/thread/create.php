@@ -16,12 +16,15 @@ $database->getConnection();
 $threadData = [];
 
 //get post data from client
-$data = array(
-    "subject" => Utility::filterPostString("_subject"),
-    "content" => Utility::filterPostString("_content"),
+$jsonData = Utility::getJsonData();
+$data = [
+    "subject" => $jsonData->_subject,
+    "content" =>  $jsonData->_content,
     "created" => Utility::getDateNow(true),
-    "user_account_id" => Utility::filterPostString("_user_account_id"),
-);
+    "user_account_id" =>  $jsonData->_user_account_id,
+];
+
+
 //insert user data to database and get last user id
 $lastInsertId = $database->insertHelper('threads', $data);
 
@@ -58,7 +61,7 @@ if ($lastInsertId) {
     $serverStatus = array('status' => 0, 'message' => 'Someting went wrong. Please try again.');
 }
 
-echo json_encode(array('data' => $threadData, 'server_status' => $serverStatus));
+echo json_encode(['data' => $threadData, 'server_status' => $serverStatus]);
 
 //close database connection
 $database->closeConnection();

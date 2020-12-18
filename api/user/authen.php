@@ -35,7 +35,7 @@ if(!empty($userData)){
     $serverStatus = array('status' =>0,'message'=> 'Logined fail please try again.');
 }
 
-echo json_encode(array('data'=>$userData, 'server_status'=>$serverStatus));
+echo json_encode(array('data'=>$userData ? $userData : null, 'server_status'=>$serverStatus));
 
 //close database connection
 $database->closeConnection();

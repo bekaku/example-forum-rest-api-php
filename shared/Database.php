@@ -9,10 +9,10 @@
 class Database
 {
     // specify your own database credentials
-    private $host = "192.168.7.146";//localhost
+    private $host = "127.0.0.1";//localhost
     private $dbName = "android_forum";//
     private $username = "root";
-    private $password = "123456";
+    private $password = "";
     private $charSet = "utf8";
     private $port = "3306";
 

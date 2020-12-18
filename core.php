@@ -14,8 +14,8 @@ $sitePath = realpath(dirname(__FILE__));
 define ('__SITE_PATH', $sitePath);
 
 //home page url
-$_mainApiUrl = "http://192.168.7.189/grandats_project/forum/api/";
-$_assetApiUrl = "http://192.168.7.189/grandats_project/forum/assets/";
+$_mainApiUrl = "http://192.168.7.183/grandats_project/forum/api/";
+$_assetApiUrl = "http://192.168.7.183/grandats_project/forum/assets/";
 define ('__MAIN_API_URL', $_mainApiUrl);
 define ('__ASSETS_API_URL', $_assetApiUrl);
 define ('__ASSETS_IMG_API_URL', $_assetApiUrl.'img/');

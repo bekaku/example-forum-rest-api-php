@@ -15,6 +15,8 @@ $database->getConnection();
 
 $threadId = Utility::filterGetString("_thread_id");
 
+
+
 //select lastest thread from database
 $query = "SELECT t.* ";
 $query .= ",u.username AS user_account_name ";
@@ -36,6 +38,7 @@ $query .= "WHERE t.id =:thread_id ";
 $query .= "GROUP BY t.id ";
 $database->query($query);
 $database->bind(":thread_id", (int)$threadId);
+
 $threadData = $database->resultSingle();
 if (!empty($threadData)) {
     $threadData['user_account_picture'] = ($threadData['user_account_picture']) ? __ASSETS_IMG_API_URL.$threadData['user_account_picture'] : __ASSETS_IMG_API_URL.'no_picture.jpg' ;
