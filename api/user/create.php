@@ -31,7 +31,7 @@ $data = array(
     "username" => $jsonData->_username,
     "hashed_password" => $jsonData->_pwd,
     "created" => Utility::getDateNow(true),
-    "picture" => $jsonData->_picture,
+    "picture" => isset($jsonData->_picture) ? $jsonData->_picture : 'avatar/avatars-material-man-1.png',
     "email" => $jsonData->_email,
 );
 
